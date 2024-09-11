@@ -1,8 +1,16 @@
-package com.sistemascola.menu;
+package com.sistemascola.senai.professorModelo;
+
+import com.sistemascola.senai.disciplinaModelo.Disciplina;
+import com.sistemascola.senai.endereco.Endereco;
+import com.sistemascola.senai.controlador.Login;
+import com.sistemascola.senai.pessoaModelo.Pessoa;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter @Setter
 public class Professor extends Pessoa implements Login {
 
     private String usuario;
@@ -20,10 +28,6 @@ public class Professor extends Pessoa implements Login {
         this.disciplinas = new ArrayList<>(); // Inicializando a lista
     }
 
-    public List<Disciplina> getDisciplinas() {
-        return disciplinas;
-    }
-
     public void adicionarDisciplina(Disciplina disciplina) {
         this.disciplinas.add(disciplina); // Adiciona uma disciplina à lista
     }
@@ -39,22 +43,6 @@ public class Professor extends Pessoa implements Login {
         }
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
     @Override
     public boolean acessoPermitido(String login, String senha) {
         if (login.equals(getUsuario()) && senha.equals(getSenha())) {
@@ -63,10 +51,4 @@ public class Professor extends Pessoa implements Login {
         return false;
     }
 
-    public void exibirDadosProfessor() {
-        System.out.println("Nome: " + getNome());
-        System.out.println("CPF: " + getCpf());
-        System.out.println("Email: " + getEmail());
-        exibirDisciplinas();
-    }
 }

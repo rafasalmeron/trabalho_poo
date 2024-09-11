@@ -1,6 +1,9 @@
-package com.sistemascola.menu;
+package com.sistemascola.senai.avaliações;
 
-public class Alunodisciplina  {
+import com.sistemascola.senai.disciplinaModelo.Disciplina;
+import com.sistemascola.senai.alunoModelo.Aluno;
+
+public class Avaliacao {
 
         private Aluno aluno;
         private Disciplina disciplina;
@@ -19,8 +22,8 @@ public class Alunodisciplina  {
         public void setMedia(double media) {
             this.media = media;
         }
-        public Alunodisciplina(Aluno aluno, Disciplina disciplina, double nota1, double nota2, double nota3,
-                double nota4) {
+        public Avaliacao(Aluno aluno, Disciplina disciplina, double nota1, double nota2, double nota3,
+                         double nota4) {
             this.aluno = aluno;
             this.disciplina = disciplina;
             this.nota1 = nota1;

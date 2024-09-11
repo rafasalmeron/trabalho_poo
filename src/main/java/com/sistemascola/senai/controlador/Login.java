@@ -1,4 +1,4 @@
-package com.sistemascola.menu;
+package com.sistemascola.senai.controlador;
 
 public interface Login {
 

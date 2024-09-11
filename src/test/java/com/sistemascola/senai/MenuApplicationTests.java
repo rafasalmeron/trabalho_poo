@@ -1,4 +1,4 @@
-package com.sistemascola.menu;
+package com.sistemascola.senai;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
