@@ -4,7 +4,6 @@ import com.sistemascola.senai.alunoModelo.*;
 import java.util.Scanner;
 
 public class SistemaDiretor {
-
     public static void MenuDiretor(String[] args) {
         Scanner sc = new Scanner(System.in);
         int option;

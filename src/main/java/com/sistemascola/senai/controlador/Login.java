@@ -1,7 +1,8 @@
 package com.sistemascola.senai.controlador;
 
+import com.sistemascola.senai.enumeradores.Role;
+
 public interface Login {
-
-    public boolean acessoPermitido(String login, String senha);
-
+    boolean acessoPermitido(String login, String senha);
+    Role getRole();
 }

@@ -3,6 +3,7 @@ package com.sistemascola.senai.professorModelo;
 import com.sistemascola.senai.disciplinaModelo.Disciplina;
 import com.sistemascola.senai.endereco.Endereco;
 import com.sistemascola.senai.controlador.Login;
+import com.sistemascola.senai.enumeradores.Role;
 import com.sistemascola.senai.pessoaModelo.Pessoa;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @Getter @Setter
 public class Professor extends Pessoa implements Login {
-
+    private Role role = Role.PROFESSOR;
     private String usuario;
     private String senha;
     private List<Disciplina> disciplinas; // Professor pode ter mais de uma disciplina
@@ -45,10 +46,12 @@ public class Professor extends Pessoa implements Login {
 
     @Override
     public boolean acessoPermitido(String login, String senha) {
-        if (login.equals(getUsuario()) && senha.equals(getSenha())) {
-            return true;
-        }
-        return false;
+        return login.equals(this.getUsuario()) && senha.equals(this.getSenha());
+    }
+
+    @Override
+    public Role getRole() {
+        return role;
     }
 
 }

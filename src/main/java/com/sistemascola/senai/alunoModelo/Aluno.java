@@ -3,6 +3,7 @@ package com.sistemascola.senai.alunoModelo;
 import com.sistemascola.senai.controlador.Login;
 import com.sistemascola.senai.endereco.Endereco;
 import com.sistemascola.senai.enumeradores.ModalidadeEnsino;
+import com.sistemascola.senai.enumeradores.Role;
 import com.sistemascola.senai.pessoaModelo.Pessoa;
 import com.sistemascola.senai.turmaModelo.Turma;
 import lombok.Getter;
@@ -12,7 +13,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 @Getter @Setter
 public class Aluno extends Pessoa implements Login{
@@ -21,14 +21,17 @@ public class Aluno extends Pessoa implements Login{
     private ModalidadeEnsino modalidade;
     private String usuario;
     private String senha;
+    private Role role = Role.ALUNO;
     public static List<Aluno> listaAlunos = new ArrayList<>();
 
     @Override
     public boolean acessoPermitido(String login, String senha) {
-        if (login.equals(getUsuario()) && senha.equals(getSenha())) {
-            return true;
-        }
-        return false;
+        return login.equals(this.getUsuario()) && senha.equals(this.getSenha());
+    }
+
+    @Override
+    public Role getRole() {
+        return role;
     }
 
     public Aluno(){
