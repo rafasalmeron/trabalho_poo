@@ -93,3 +93,41 @@ public void exibirDadosProfessor() {
         System.out.println("Email: " + getEmail());
         exibirDisciplinas();
     }
+
+public String dataMatricula() {
+        LocalDateTime today = LocalDateTime.now();
+        DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return today.format(customFormatter);
+    }
+
+    public void exibirDadosTurma() {
+            System.out.println("\nID da turma: " + this.getId());
+            System.out.println("Número da turma: " + this.getNumero());
+
+            if (alunos.isEmpty()) {
+                System.out.println("Nenhum aluno registrado.");
+            } else {
+                System.out.println("\nAlunos:");
+                for (Aluno aluno : alunos) {
+                    System.out.println("- " + aluno); // Isso vai chamar o método toString() de Aluno
+                }
+            }
+            if (professores.isEmpty()) {
+                System.out.println("Nenhum professor registrado.");
+            } else {
+                System.out.println("\nProfessores:");
+                for (Professor professor : professores) {
+                    System.out.println("- " + professor.getNome()); // Isso vai chamar o método toString() de professor
+                }
+            }
+
+        }
+
+        for (Professor professor : professores) {
+                    System.out.println("Professor: " + professor.getNome());
+                    System.out.println("Disciplinas:");
+                    for (Disciplina disciplina : professor.getDisciplinas()) {
+                        System.out.println(" - " + disciplina.getNome());
+                    }
+                    System.out.println();
+                }

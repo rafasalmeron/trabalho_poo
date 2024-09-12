@@ -1,11 +1,11 @@
 package com.sistemascola.senai.alunoModelo;
 
-import com.sistemascola.senai.global.GlobalScanner;
-
+import java.util.Scanner;
 import static com.sistemascola.senai.alunoModelo.Aluno.listaAlunos;
 
 public interface Deletar {
     static void deletarAluno(){
+        Scanner scanLocal  = new Scanner(System.in);
         int option;
         String cpfDigitado;
 
@@ -14,7 +14,7 @@ public interface Deletar {
             
             Digite o CPF do Aluno:
             """);
-        cpfDigitado = GlobalScanner.scan.nextLine();
+        cpfDigitado = scanLocal.nextLine();
         if (listaAlunos.isEmpty()) {
             System.out.println("Nenhum Aluno registrado. Lista Vazia...");
         } else {
@@ -43,7 +43,7 @@ public interface Deletar {
                 
                 """);
 
-                option = GlobalScanner.scan.nextInt();
+                option = scanLocal.nextInt();
 
                 switch (option) {
                     case 1 -> {

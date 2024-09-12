@@ -1,9 +1,11 @@
-package com.sistemascola.senai.alunoModelo;
+package com.sistemascola.senai.professorModelo;
+
+import com.sistemascola.senai.alunoModelo.Aluno;
 
 import static com.sistemascola.senai.alunoModelo.Aluno.listaAlunos;
 
-public interface Listar {
-    static void listarAlunos(){
+public interface ConsultarAlunos {
+    static void consultarAlunos(){
         if(listaAlunos.isEmpty()){
             System.out.println("Nenhum Aluno Cadastrado");
         }
@@ -13,8 +15,9 @@ public interface Listar {
                                 ° Nome: %s
                                 ° CPF: %s
                                 ° Matricula: %s
+                                ° Data de Matricula: %s
                                 
-                                """, a.getNome(), a.getCpf(), a.getMatricula()
+                                """, a.getNome(), a.getCpf(), a.getMatricula(), a.getMatriculadoEm()
             );
         }
     }

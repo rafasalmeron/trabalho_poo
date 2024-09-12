@@ -1,11 +1,11 @@
 package com.sistemascola.senai.alunoModelo;
 
-import com.sistemascola.senai.global.GlobalScanner;
-
+import java.util.Scanner;
 import static com.sistemascola.senai.alunoModelo.Aluno.listaAlunos;
 
 public interface Atualizar {
     static void atualizarAluno(){
+        Scanner scanLocal  = new Scanner(System.in);
         int option;
         String cpfDigitado;
 
@@ -14,7 +14,7 @@ public interface Atualizar {
             
             Digite o CPF do Aluno:
             """);
-        cpfDigitado = GlobalScanner.scan.nextLine();
+        cpfDigitado = scanLocal.nextLine();
         if (listaAlunos.isEmpty()) {
             System.out.println("Nenhum Aluno registrado. Lista Vazia...");
         } else {
@@ -22,9 +22,11 @@ public interface Atualizar {
             for (Aluno a : listaAlunos) {
                 if (a.getCpf().equals(cpfDigitado)) {
                     System.out.printf("""
+                            
                             ° Nome: %s
                             ° CPF: %s
                             ° Matricula: %s
+                            
                             """, a.getNome(), a.getCpf(), a.getMatricula()
                     );
                     verificador = 1;
@@ -46,23 +48,23 @@ public interface Atualizar {
                                 
                                 """);
 
-                    option = GlobalScanner.scan.nextInt();
+                    option = scanLocal.nextInt();
 
                     switch (option) {
                         case 1 -> {
-                            String nome = GlobalScanner.scan.nextLine();
+                            String nome = scanLocal.nextLine();
                             for (int i = 0; i < listaAlunos.size(); i++) {
                                 listaAlunos.get(i).setNome(nome);
                             }
                         }
                         case 2 -> {
-                            String matricula = GlobalScanner.scan.nextLine();
+                            String matricula = scanLocal.nextLine();
                             for (int i = 0; i < listaAlunos.size(); i++) {
                                 listaAlunos.get(i).setMatricula(matricula);
                             }
                         }
                         case 3 -> {
-                            String cpf = GlobalScanner.scan.nextLine();
+                            String cpf = scanLocal.nextLine();
                             for (int i = 0; i < listaAlunos.size(); i++) {
                                 listaAlunos.get(i).setCpf(cpf);
                             }
