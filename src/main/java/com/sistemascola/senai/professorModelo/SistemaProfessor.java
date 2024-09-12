@@ -1,7 +1,5 @@
 package com.sistemascola.senai.professorModelo;
 
-import com.sistemascola.senai.alunoModelo.Aluno;
-import com.sistemascola.senai.alunoModelo.Deletar;
 import com.sistemascola.senai.alunoModelo.Listar;
 import com.sistemascola.senai.avaliacoes.Avaliacao;
 import java.util.Scanner;
@@ -199,7 +197,7 @@ public class SistemaProfessor {
         }
     }
 
-    public static void menuProfessor(String[] args) {
+    public static void menuProfessor() {
         Scanner sc = new Scanner(System.in);
         int option;
 

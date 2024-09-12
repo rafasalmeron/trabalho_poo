@@ -21,7 +21,7 @@ import static com.sistemascola.senai.professorModelo.SistemaProfessor.menuProfes
 
 @SpringBootApplication
 public class SenaiApplication {
-	public static void entrada(String[] args) {
+	public static void entrada() {
 		Scanner scanLocal = new Scanner(System.in);
 
 		List<Login> usuarios = new ArrayList<>();
@@ -51,13 +51,13 @@ public class SenaiApplication {
 		Role role = loginController.login(user, pass, usuarios);
 
 		if(role == Role.DIRETOR) {
-			MenuDiretor(args);
+			MenuDiretor();
 		}
 		if(role == Role.ALUNO){
 			System.out.println("Menu do Aluno");
 		}
 		if(role == Role.PROFESSOR){
-			menuProfessor(args);
+			menuProfessor();
 		}
 	}
 
@@ -79,7 +79,7 @@ public class SenaiApplication {
 			Scanner scanLocal = new Scanner(System.in);
 			opt = scanLocal.nextInt();
 			switch (opt){
-				case 1 -> entrada(args);
+				case 1 -> entrada();
 				case 2 -> System.out.println("Obrigado por utilizar nosso sistema");
 				default -> System.out.println("Opção inválida!");
 			}
