@@ -6,6 +6,7 @@ import com.sistemascola.senai.avaliacoes.AvaliacaoInstance;
 import com.sistemascola.senai.disciplinaModelo.DisciplinaInstance;
 import com.sistemascola.senai.professorModelo.Professor;
 import com.sistemascola.senai.professorModelo.ProfessorInstance;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.sistemascola.senai.controlador.Login;
 import com.sistemascola.senai.controlador.LoginController;
@@ -13,12 +14,14 @@ import com.sistemascola.senai.diretorModelo.Diretor;
 import com.sistemascola.senai.enumeradores.Role;
 import org.springframework.boot.SpringApplication;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 import static com.sistemascola.senai.diretorModelo.SistemaDiretor.MenuDiretor;
 import static com.sistemascola.senai.professorModelo.SistemaProfessor.menuProfessor;
 
+@Log4j2
 @SpringBootApplication
 public class SenaiApplication {
 	public static void entrada() {
@@ -67,7 +70,8 @@ public class SenaiApplication {
 		ProfessorInstance.professorInstance();
 		AvaliacaoInstance.avaliacaoInstance();
 		AlunoInstance.alunoInstance();
-		int opt;
+		int opt = 0;
+
 		do{
 			System.out.println("""
 					     Menu Principal
@@ -76,12 +80,16 @@ public class SenaiApplication {
 					Digite 2 para SAIR
 
 					""");
-			Scanner scanLocal = new Scanner(System.in);
-			opt = scanLocal.nextInt();
-			switch (opt){
-				case 1 -> entrada();
-				case 2 -> System.out.println("Obrigado por utilizar nosso sistema");
-				default -> System.out.println("Opção inválida!");
+			try {
+				Scanner scanLocal = new Scanner(System.in);
+				opt = scanLocal.nextInt();
+				switch (opt){
+					case 1 -> entrada();
+					case 2 -> System.out.println("Obrigado por utilizar nosso sistema");
+					default -> System.out.println("Opção inválida!");
+				}
+			}catch (InputMismatchException e){
+				log.error("Verifique se utilizou números para sua escolha.", e);
 			}
 		}while(opt != 2);
     }
