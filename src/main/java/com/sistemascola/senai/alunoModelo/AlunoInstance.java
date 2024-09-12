@@ -79,8 +79,8 @@ public interface AlunoInstance {
         Aluno aluno8 = new Aluno();
         aluno8.setNome("Luke Skywalker");
         aluno8.setId(8);
-        aluno1.setCpf("1234567fd0");
-        aluno1.setMatricula("130");
+        aluno8.setCpf("1234567fd0");
+        aluno8.setMatricula("130");
         aluno8.setUsuario("luke");
         aluno8.setSenha("123");
         aluno8.setMatriculadoEm(LocalDateTime.now());

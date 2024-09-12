@@ -2,7 +2,8 @@ package com.sistemascola.senai;
 
 import com.sistemascola.senai.alunoModelo.Aluno;
 import com.sistemascola.senai.alunoModelo.AlunoInstance;
-import com.sistemascola.senai.professorModelo.ConsultarAlunos;
+import com.sistemascola.senai.avaliacoes.AvaliacaoInstance;
+import com.sistemascola.senai.disciplinaModelo.DisciplinaInstance;
 import com.sistemascola.senai.professorModelo.Professor;
 import com.sistemascola.senai.professorModelo.ProfessorInstance;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -62,7 +63,9 @@ public class SenaiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SenaiApplication.class, args);
+		DisciplinaInstance.disciplinasInstance();
 		ProfessorInstance.professorInstance();
+		AvaliacaoInstance.avaliacaoInstance();
 		AlunoInstance.alunoInstance();
 		int opt;
 		do{
@@ -78,6 +81,7 @@ public class SenaiApplication {
 			switch (opt){
 				case 1 -> entrada(args);
 				case 2 -> System.out.println("Obrigado por utilizar nosso sistema");
+				default -> System.out.println("Opção inválida!");
 			}
 		}while(opt != 2);
     }

@@ -2,6 +2,7 @@ package com.sistemascola.senai.disciplinaModelo;
 
 public interface DisciplinaInstance {
     static void disciplinasInstance(){
+
         Disciplina matematica = new Disciplina();
         matematica.setNome("Matematica");
         matematica.setId(1);

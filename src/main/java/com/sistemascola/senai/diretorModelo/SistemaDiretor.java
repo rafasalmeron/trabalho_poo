@@ -27,6 +27,7 @@ public class SistemaDiretor {
                 case 3 -> Listar.listarAlunos();
                 case 4 -> Deletar.deletarAluno();
                 case 0 -> System.out.println("Sair");
+                default -> System.out.println("Opção inválida!");
             }
         }while(option != 0);
     }
